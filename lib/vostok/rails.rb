@@ -7,8 +7,8 @@ module Vostok
       unless connection.is_a? ActiveRecord::ConnectionAdapters::PostgreSQLAdapter
         raise NotImplementedError, 'Only PostgreSQL (PG gem) is supported'
       end
-      connection = connection.instance_variable_get(:@connection)
-      import = Vostok::Import.new(connection)
+      conn = connection.instance_variable_get(:@connection)
+      import = Vostok::Import.new(conn)
       import.start(table_name, columns, values)
     end
   end

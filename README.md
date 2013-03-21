@@ -1,6 +1,8 @@
 # Vostok::Rails
 
-TODO: Write a gem description
+[![Build Status](https://travis-ci.org/Valve/vostok-rails.png)](https://travis-ci.org/Valve/vostok-rails)
+
+Sick PG import for Rails
 
 ## Installation
 
@@ -18,7 +20,35 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Vostok works directly with PG gem, no other dependencies
+
+```ruby
+
+data = []
+10_000.times do
+  data << ['String', 99]
+end
+
+Customer.import([:name, :balance], data)
+
+```
+
+What Vostok does not do:
+
+1. Run validations
+3. Works with other DBs
+4. Sanitizes your data
+
+However, what it does is insert rows at a sick rate.
+
+`
+10_000 rows inserted with AR - 18 seconds
+`
+
+`
+10_000 rows inserted with Vostok - 0.2 seconds
+`
+
 
 ## Contributing
 
