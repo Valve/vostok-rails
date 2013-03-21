@@ -22,6 +22,8 @@ Or install it yourself as:
 
 Vostok works directly with PG gem, no other dependencies
 
+Vostok::Rails is an ActiveRecord plugin that adds `import` class method on any model.
+
 ```ruby
 
 data = []
